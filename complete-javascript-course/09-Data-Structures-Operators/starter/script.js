@@ -50,6 +50,7 @@ restaurant.orderDelivery({
   address: '2-1번지',
   Index: 2,
 });
+
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
 const {
@@ -72,14 +73,14 @@ console.log(menu, starters);
 
 //destructuring assignment
 let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
+let u = 999;
+const obj = { a: 23, b: 7, u: 14 };
+({ a, u } = obj);
+console.log(a, u);
 
 const {
   fri: { open: o, close: c, time: t = [] },
-} = openingHours;
+} = openingHour;
 console.log(o, c, t);
 //...스프레드 연산자는 얕은 복사이다=>배열만들때, 함수에 값을 전달할때
 //스프레드 연산자는 iterable에서 동작한다. iterable=>기본 내장 데이터구조인 배열, 문자열, 맵, 집합을 포함하지만, 여기에 객체는 속하지않는다.
@@ -103,9 +104,11 @@ const mainMenuCopy = [...restaurant.mainMenu];
 const a1 = [1, 2, 3];
 const a2 = [4, a1[0], a1[1]];
 a2[1] = 5;
-console.log(a1);
+console.log(a1); //a1바뀌지 않는다.
 
 const newRestaurant = { ...restaurant, founder: 'abcde' };
+newRestaurant.name = 'dd';
+console.log(restaurant);
 console.log(newRestaurant);
 
 // 배열참조
@@ -138,11 +141,12 @@ const [pizza, , risotto, ...otherFood] = [
 ];
 console.log(pizza, risotto, otherFood);
 
-//const { sat, ...weekdays } = restaurant.openingHours;
+//const { sat, ...weekdays } = restaurant.openingHour;
 console.log(weekdays);
 
-//rest param
+//rest par=>함수의 파람으로 오는걸 배열로 전달받을수 있다.
 const add = function (...numbers) {
+  console.log(numbers);
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
   console.log(sum);
