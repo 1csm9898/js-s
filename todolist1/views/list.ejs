@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <!-- html태그는 콘텐츠이다=>스클립트 태그로 너무 많은 로직을 담으면 안된다 -->
+    <!-- <% if (kindOfDay==="weekend") {%>
+    <h1 style="color: purple"><%=kindOfDay%>!</h1>
+    <% } else {%>
+    <h1 style="color: blue"><%=kindOfDay%>!</h1>
+    <% } %> -->
+    <h1><%=kindOfDay%>!</h1>
+    <ul>
+      <% for(var i=0;i<toDos.length;i++) { %>
+        <li><%= toDos[i] %></li>
+        <% } %>
+    </ul>
+
+    <hr />
+    <form action="/" method="POST">
+      <input type="text" name="toDo" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

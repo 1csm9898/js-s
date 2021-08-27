@@ -41,6 +41,7 @@ checkIn(flight, Jonas);
 console.log(flight);
 console.log(Jonas);
 
+//클로저
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -48,3 +49,24 @@ const greet = function (greeting) {
 };
 const greeterHey = greet('hey');
 greeterHey('Jonas');
+greet('hello')('sunmin');
+
+const greet1 = greeting => name => {
+  console.log(`${greeting} ${name}`);
+  console.log(4);
+};
+
+//arrow fun에서 몸체가 한줄이면 안쓴다
+const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+greet2('hello')('sun');
+
+const luft = {
+  airline: 'luft',
+  iata: 'LH',
+  booking: [],
+  //es6이전
+  //book:function() {}
+  book(flightNum, name) {
+    console.log(`${name} booked a seat on ${this.airline} ${flightNum}`);
+  },
+};
