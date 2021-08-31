@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TODO LIST</title>
-  </head>
-  <body>
-      <ul>
-          <% for(var i=0;i<toDos.length;i++) {%>
-              <li><%=toDos[i]%></li>
-            <% }%>
-      </ul>
+<%- include("header")-%>
 
-      <form action="/" method="POST">
-          <input type="text" name="toDo">
-          <button>제출</button>
-      </form>
-  </body>
-</html>
+<!-- html태그는 콘텐츠이다=>스클립트 태그로 너무 많은 로직을 담으면 안된다 -->
+<div class="box" id="heading">
+  <h1><%=listTitle%></h1>
+</div>
+<div class="box">
+  <% for(var i=0;i<lists.length;i++) { %>
+    <div class="item">
+      <input type="checkbox" />
+      <p><%= lists[i] %></p>
+    </div>
+    <% } %>
+
+    <form class="item" action="/" method="POST">
+      <input type="text" name="toDo" placeholder="write" />
+      <button type="submit" name="button" value="<%=listTitle%>">+</button>
+    </form>
+  </lists.length;i++)>
+</div>
+
+<%- include("footer")-%>
