@@ -34,9 +34,7 @@ app.get("/posts/:num", function (req, res) {
   const title = _.lowerCase(req.params.num);
   posts.forEach(function (post) {
     if (_.lowerCase(post.title) === title) {
-      console.log("true");
-    } else {
-      console.log("false");
+      res.render("post", { title: post.title, content: post.content });
     }
   });
 });
