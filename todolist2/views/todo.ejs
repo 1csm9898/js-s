@@ -5,12 +5,14 @@
   <h1><%=listTitle%></h1>
 </div>
 <div class="box">
-  <% for(var i=0;i<lists.length;i++) { %>
+  <% lists.forEach(function(list) { %>
+    <form class="item" action="/delete" method="post">
     <div class="item">
-      <input type="checkbox" />
-      <p><%= lists[i] %></p>
+      <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%=list._id%>"/>
+      <p><%=list.name %></p>
     </div>
-    <% } %>
+    </form>
+    <% }) %>
 
     <form class="item" action="/" method="POST">
       <input type="text" name="toDo" placeholder="write" />
